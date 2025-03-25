@@ -1,0 +1,29 @@
+name: Dataset Generator
+run-name: Generate a random food dataset
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [Generate-Dataset]
+jobs:
+  Generate-Dataset:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and run generator using GCC
+        run: |
+          g++ --version
+          g++ -o dataset_generator dataset_generator_src/dataset_generator.cpp
+          ./dataset_generator
+      - name: Move results to dataset folder
+        run: |
+          mkdir dataset
+          mv dataset.csv dataset/
+      - name: Commit dataset to repository
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "<>"
+          git add dataset/
+          git commit -m "Refresh dataset.csv"
+          git push
