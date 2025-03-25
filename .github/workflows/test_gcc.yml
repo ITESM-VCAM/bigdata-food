@@ -1,0 +1,9 @@
+name: Test GCC
+on:
+  workflow_dispatch:
+jobs:
+  Test-GCC:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gcc --version
+      - run: g++ --version
