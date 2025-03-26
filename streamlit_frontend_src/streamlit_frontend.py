@@ -11,7 +11,7 @@ def get_processed_dataset(file_url):
 
 
 def post_github_dispatch(user, repo, job, token):
-    url = f'https://api.github.com/repost/{user}/{repo}/dispatches'
+    url = f'https://api.github.com/repos/{user}/{repo}/dispatches'
     payload = {
         'event_type': job
     }
