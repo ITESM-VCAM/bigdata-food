@@ -12,6 +12,7 @@ print(f"Number of entries with over 100 kilocalories: {entry_count}")
 
 # save results to file
 json_data = high_calorie_foods.toJSON().collect()
+high_calorie_foods.write.mode("overwrite").json("results")
 with open('results/data.json', 'w') as file:
     json.dump(json_data, file)
 

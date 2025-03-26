@@ -23,11 +23,10 @@ jobs:
           spark-version: "3.5.5"
       - name: Process dataset using spark
         run: |
-          ls -la -R
+          ls -l -R
           rm results/data.json
-          ls -la -R
           spark-submit --master local spark_processor_src/spark_processor.py
-          ls -la -R
+          ls -l -R
       - name: Commit dataset to repository
         run: |
           git config user.name "GitHub Actions"
