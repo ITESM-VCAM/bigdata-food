@@ -29,5 +29,5 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "<>"
           git add results/
-          git commit -m "Refresh dataset.csv"
+          git commit -m "Refresh spark results"
           git push

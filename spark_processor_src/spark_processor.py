@@ -12,7 +12,7 @@ entry_count = high_calorie_foods.count()
 print(f"Number of entries with over 100 kilocalories: {entry_count}")
 
 # save results to file
-high_calorie_foods.write.json("results/high_calorie_foods_json")
+high_calorie_foods.write.json("results", "overwrite")
 
 # stop spark session
 spark.stop()
