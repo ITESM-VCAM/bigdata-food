@@ -23,6 +23,7 @@ jobs:
           spark-version: "3.5.5"
       - name: Process dataset using spark
         run: |
+          rm results/data.json
           spark-submit --master local spark_processor_src/spark_processor.py
       - name: Commit dataset to repository
         run: |
