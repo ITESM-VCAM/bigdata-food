@@ -41,7 +41,7 @@ github_token = sl.text_input('Github token', value='')
 sl.header('Data visualization')
 file_url = sl.text_input(
     'File URL',
-    value=f'https://github.com/{github_user}/{github_repo}/raw/refs/heads/master/results/FILENAME.json')
+    value=f'https://github.com/{github_user}/{github_repo}/raw/refs/heads/master/results/data.json')
 if sl.button('GET dataset file'):
     get_processed_dataset(file_url)
 
