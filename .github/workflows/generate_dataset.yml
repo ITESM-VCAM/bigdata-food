@@ -18,6 +18,7 @@ jobs:
           ./dataset_generator
       - name: Move results to dataset folder
         run: |
+          rm dataset -rf
           mkdir dataset
           mv dataset.csv dataset/
       - name: Commit dataset to repository
