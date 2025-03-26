@@ -1,6 +1,5 @@
 import pyspark.sql as pssql
-# from pyspark.sql import SparkSession
-# from pyspark.sql.types import StructType, StructField, IntegerType, StringType
+import json
 
 # load spark session
 spark = pssql.SparkSession.builder.appName("food").getOrCreate()
@@ -13,7 +12,8 @@ print(f"Number of entries with over 100 kilocalories: {entry_count}")
 
 # save results to file
 json_data = high_calorie_foods.toJSON().collect()
-json_data.write.json("results", "overwrite")
+with open('results/data.json', 'w') as file:
+    json.dump(json_data, file)
 
 # stop spark session
 spark.stop()
